@@ -1,5 +1,48 @@
 // src/content.typ
 
+#import "@preview/droplet:0.3.1": dropcap as raw-dropcap
+
+
+
+#let illum-rubric = rgb("#ff6868")
+#let illum-gold = rgb("#ff6868")
+
+#let incipit-rest(body) = text(
+  font: "Hoefler Text",
+  size: 11.6pt,
+  tracking: 0.10em,
+  fill: illum-gold,
+  smallcaps(body),
+)
+
+#let manuscript-dropword(
+  initial,
+  // rest,
+  body,
+  height: 3,
+  gap: 1em,
+) = raw-dropcap(
+  [
+    #box(stroke: 0.5pt + red, inset: (x: 12pt, y: 4pt), radius: 3pt)[
+      #initial
+    ]
+  ],
+  [
+    #body
+  ],
+  height: height,
+  gap: gap,
+  justify: false,
+  transform: letter => text(
+    font: "Hoefler Text",
+    fill: illum-rubric,
+    stroke: illum-gold + 0.2pt,
+    size: 4em,
+  )[
+    #letter
+  ],
+)
+
 
 // #v(12pt)
 
@@ -21,7 +64,7 @@
   #align(center)[
     #text(
       font: roman,
-      size: 9pt,
+      size: 12pt,
       fill: dim,
       style: "italic",
       body,
@@ -57,26 +100,32 @@
   ]
 ]
 
-#let poem(body, width: poem-measure) = align(center)[
-  #block(
-    width: width,
-    above: 0.1em,
-    below: 2.15em,
-  )[
-    #set text(
-      font: roman,
-      size: 10.6pt,
-      fill: ink,
-    )
+#let poem(body, width: poem-measure, dir: center) = block(
+  width: 100%,
+)[
+  #align(dir)[
+    #block(
+      width: width,
+      above: 0.1em,
+      below: 2.15em,
+    )[
+      #set align(left)
 
-    #set par(
-      justify: false,
-      leading: 0.72em,
-      spacing: 0pt,
-      first-line-indent: 0pt,
-    )
+      #set text(
+        font: roman,
+        size: 10.6pt,
+        fill: ink,
+      )
 
-    #body
+      #set par(
+        justify: false,
+        leading: 0.72em,
+        spacing: 0pt,
+        first-line-indent: 0pt,
+      )
+
+      #body
+    ]
   ]
 ]
 

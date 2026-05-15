@@ -40,18 +40,12 @@
 )[
   #block(width: heading-measure)[
     #text(
-      size: 31pt,
+      size: 36pt,
       tracking: 0.14em,
       weight: "semibold",
       fill: heading-ink,
       smallcaps(body),
     )
-  ]
-
-  #v(0.5em)
-
-  #block(width: 100%)[
-    #line(length: 100%, stroke: 0.6pt + heading-rule)
   ]
 ]
 
@@ -62,7 +56,7 @@
 )[
   #block(width: heading-measure)[
     #text(
-      size: 23pt,
+      size: 18pt,
       fill: heading-ink,
       tracking: 0.055em,
       weight: "regular",
@@ -78,7 +72,7 @@
 )[
   #block(width: heading-measure)[
     #text(
-      size: 13pt,
+      size: 14pt,
       fill: heading-soft,
       tracking: 0.13em,
       weight: "semibold",
@@ -94,7 +88,7 @@
 )[
   #block(width: heading-measure)[
     #text(
-      size: 10pt,
+      size: 18pt,
       fill: heading-muted,
       tracking: 0.11em,
       weight: "semibold",
@@ -105,14 +99,18 @@
 
 // MAIN PAGE
 
-#align(center)[
-  #block(width: 100%)[
-    #outline()
-  ]
-]
-
 #align(center + horizon)[
   = Galvanizing Lines
+]
+
+#align(left)[
+  #block(width: 100%)[
+    #outline(
+      title: [
+        #text(size: 20pt, fill: rgb("#878484"))[Contents]
+      ]
+    )
+  ]
 ]
 
 // Don't pollute global namespace
